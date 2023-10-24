@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title> Trang chủ </title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+    <body>
+    <div class = "container">
+        <h1> Hệ thống quản lý vật tư</h1>
+        <hr>
+        <h2> Trang chủ </h2>
+        <p th:text="'Tên: ' + ${admin.ten}"></p>
+        <p th:text="'Số điện thoại: ' + ${admin.sodienthoai}"></p>
+        <p th:text="'Email: ' + ${admin.email}"></p>
+
+        <a href="/login">Logout</a>
+
+
+    </div>
+
+    </body>
+</html>
+
+
+

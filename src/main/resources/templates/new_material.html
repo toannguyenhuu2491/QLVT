@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Material</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class = "container">
+        <h1 Hệ thống quản lý vật tư></h1>
+        <hr>
+        <h2>Thêm vật tư</h2>
+        <form th:action = "@{/saveMaterial}" th:object = "${material}" method = "POST">
+            <input type="text" th:field = "*{ten}"
+                   placeholder="Tên" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{loai}"
+                   placeholder="Loại" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{soluong}"
+                   placeholder="Số lượng" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{donvi}" placeholder="Đơn vị" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{dongia}" placeholder="Đơn giá" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{nhacungcap}" placeholder="Nhà cung cấp" class="form-control mb-4 col-4">
+            <input type="text" th:field = "*{mota}" placeholder="Mô tả" class="form-control mb-4 col-4">
+            <button type="submit" class="btn btn-info col-2">Lưu hàng hóa</button>
+        </form>
+        <hr>
+        <a th:href = "@{/}"> Quay lại </a>
+    </div>
+</body>
+</html>
