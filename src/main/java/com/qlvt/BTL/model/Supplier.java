@@ -2,10 +2,12 @@ package com.qlvt.BTL.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
-@Table(name = "supplier")
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +18,9 @@ public class Supplier {
     private String diachi;
     private String email;
     private String mota;
+
+    @OneToMany(mappedBy = "supplier")
+    private List<Item> hangnhap = new ArrayList<>();
 
     public Supplier() {
     }
@@ -74,5 +79,13 @@ public class Supplier {
 
     public void setMota(String mota) {
         this.mota = mota;
+    }
+
+    public List<Item> getHangnhap() {
+        return hangnhap;
+    }
+
+    public void setHangnhap(List<Item> hangnhap) {
+        this.hangnhap = hangnhap;
     }
 }

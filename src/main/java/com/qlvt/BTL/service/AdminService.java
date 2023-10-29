@@ -7,4 +7,6 @@ public interface AdminService {
     Admin save(AdminRegis regis);
     Admin getInfo(Admin admin);
     Boolean authenticate(Admin admin);
+
+    Admin getAdminById(long id);
 }

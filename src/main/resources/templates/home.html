@@ -17,10 +17,14 @@
         <p th:text="'Số điện thoại: ' + ${admin.sodienthoai}"></p>
         <p th:text="'Email: ' + ${admin.email}"></p>
 
-        <a th:href = "@{/management}"> Quản lý thông tin vật tư </a>
-        <a th:href = "@{/management}"> Nhập hàng hóa </a>
-        <a th:href = "@{/management}"> Thống kê hàng hóa theo nhà cung cấp </a>
-        <a th:href = "@{/management}"> Thanh toán </a>
+        <a th:href = "@{/management}" class="btn btn-primary"> Quản lý thông tin vật tư  </a>
+        <br>
+        <a th:href = "@{/suppliers}" class="btn btn-primary"> Nhập hàng hóa </a>
+        <br>
+        <a th:href = "@{/management}" class="btn btn-primary"> Thống kê hàng hóa theo nhà cung cấp </a>
+        <br>
+        <a th:href = "@{/management}" class="btn btn-primary"> Thanh toán </a>
+        <hr>
         <a href="/login">Logout</a>
 
 

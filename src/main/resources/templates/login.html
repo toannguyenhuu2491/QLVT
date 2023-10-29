@@ -35,10 +35,10 @@
         <div class = "col-md-6 col-md-offset-3">
 
             <h1> Trang đăng nhập </h1>
-            <form th:action="@{/home}" th:object="${admin}" method="POST">
+            <form th:action="@{/login}" th:object="${admin}" method="POST">
 
                 <!-- error message -->
-                <div th:if="${param.error}">
+                <div th:if="${error}">
                     <div class="alert alert-danger">Invalid username or
                         password.</div>
                 </div>

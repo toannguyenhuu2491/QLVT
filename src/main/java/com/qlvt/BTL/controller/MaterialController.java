@@ -17,14 +17,14 @@ public class MaterialController {
     private MaterialService materialService;
 
     @GetMapping("/management")
-    public String viewHomePage(Model model, Admin admin) {
-
+    public String viewHomePage(Model model) {
         model.addAttribute("listMaterials", materialService.getAllMaterials());
         return "management";
 
 
     }
 
+    // CRUD
 
     @GetMapping("/showNewMaterialForm")
     public String showNewMaterialForm(Model model) {
@@ -58,6 +58,26 @@ public class MaterialController {
         this.materialService.deleteMaterialById(id);
         return "redirect:/management";
     }
+
+
+    // nhập hàng hóa
+
+    @GetMapping("/import")
+    public String showImportForm(Model model) {
+        Material material = new Material();
+        model.addAttribute("material", material);
+        return "import";
+
+    }
+
+    @PostMapping("/import")
+    public String importMaterial(@ModelAttribute("material")  Material material){
+        materialService.saveMaterial(material);
+        return "redirect:/management";
+    }
+
+
+
 
 
 }

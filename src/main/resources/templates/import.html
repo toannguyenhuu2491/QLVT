@@ -13,18 +13,17 @@
     <h1 Hệ thống quản lý vật tư></h1>
     <hr>
     <h2> Nhập hàng hóa </h2>
-    <form th:action = "@{/import}" th:object = "${material}" method = "POST">
-        <input type="text" th:field = "*{ten}"
-               placeholder="Tên" class="form-control mb-4 col-4">
-        <input type="text" th:field = "*{loai}"
-               placeholder="Loại" class="form-control mb-4 col-4">
+    <form th:action = "@{/importMaterial}" th:object = "${material}" method = "POST">
+        <p th:text ="'Tên: ' + ${material.ten} " class="form-control mb-4 col-4"></p>
+        <p th:text ="'Loại: ' + ${material.loai} " class="form-control mb-4 col-4"></p>
         <input type="text" th:field = "*{soluong}"
                placeholder="Số lượng" class="form-control mb-4 col-4">
-        <input type="text" th:field = "*{donvi}" placeholder="Đơn vị" class="form-control mb-4 col-4">
-        <input type="text" th:field = "*{dongia}" placeholder="Đơn giá" class="form-control mb-4 col-4">
-        <input type="text" th:field = "*{nhacungcap}" placeholder="Nhà cung cấp" class="form-control mb-4 col-4">
-        <input type="text" th:field = "*{mota}" placeholder="Mô tả" class="form-control mb-4 col-4">
-        <button type="submit" class="btn btn-info col-2">Lưu hàng hóa</button>
+        <p th:text ="'Đơn vị: ' + ${material.donvi} " class="form-control mb-4 col-4"></p>
+        <p th:text ="'Đơn giá: ' + ${material.dongia} " class="form-control mb-4 col-4"></p>
+        <p th:text ="'Nhà cung cấp: ' + ${material.nhacungcap} " class="form-control mb-4 col-4"></p>
+        <p th:text ="'Mô tả: ' + ${material.mota} " class="form-control mb-4 col-4"></p>
+        <br>
+        <button type="submit" class="btn btn-info col-2">Nhập hàng hóa</button>
     </form>
     <hr>
     <a th:href = "@{/management}"> Quay lại </a>

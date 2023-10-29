@@ -2,7 +2,10 @@ package com.qlvt.BTL.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Material {
@@ -17,13 +20,21 @@ public class Material {
     private long dongia;
     private String nhacungcap;
     private String mota;
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "hangnhap",
-            joinColumns = @JoinColumn(name = "admin_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "supplier_id", referencedColumnName = "id")
-    )
-    private Collection<Supplier> nhacungcap;
+    @OneToMany(mappedBy = "material")
+    private List<Item> hangnhap = new ArrayList<>();
+
+
+    public Material() {
+    }
+
+    public Material(String ten, String loai, long soluong, String donvi, long dongia, String mota) {
+        this.ten = ten;
+        this.loai = loai;
+        this.soluong = soluong;
+        this.donvi = donvi;
+        this.dongia = dongia;
+        this.mota = mota;
+    }
 
     public long getId() {
         return id;
@@ -87,5 +98,13 @@ public class Material {
 
     public void setMota(String mota) {
         this.mota = mota;
+    }
+
+    public List<Item> getHangnhap() {
+        return hangnhap;
+    }
+
+    public void setHangnhap(List<Item> hangnhap) {
+        this.hangnhap = hangnhap;
     }
 }
