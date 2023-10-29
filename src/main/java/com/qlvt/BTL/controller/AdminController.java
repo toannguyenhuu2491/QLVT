@@ -13,27 +13,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AdminController {
-
+    @Autowired
     private AdminService adminService;
 
     @GetMapping("/login")
-    public String loginForm() {
-
+    public String loginForm(Model model) {
+        model.addAttribute("admin", new Admin());
         return "login";
     }
 
+//    @GetMapping("/home")
+//    public String homePage(Model model){
+//
+//    }
 
-    @PostMapping("/login")
-    public String login(@ModelAttribute(name = "admin")Admin admin, Model model) {
-        Admin authen = adminService.authenticate(admin.getUsername(), admin.getPassword());
-
-        if (authen != null) {
-            model.addAttribute("admin", authen);
+    @PostMapping("/home")
+    public String authenicate(@ModelAttribute("admin")Admin admin, Model model) {
+        if (adminService.authenticate(admin)) {
+            admin = adminService.getInfo(admin);
+            model.addAttribute("admin",admin);
             return "home";
         } else {
-            model.addAttribute("error", "Sai tên đăng nhập hoặc mật khẩu");
             return "login";
         }
+
     }
 
 }

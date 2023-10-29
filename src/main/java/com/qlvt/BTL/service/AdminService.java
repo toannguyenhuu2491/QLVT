@@ -5,6 +5,6 @@ import com.qlvt.BTL.model.Admin;
 
 public interface AdminService {
     Admin save(AdminRegis regis);
-
-    Admin authenticate(String username, String password);
+    Admin getInfo(Admin admin);
+    Boolean authenticate(Admin admin);
 }

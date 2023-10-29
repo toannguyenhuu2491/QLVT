@@ -2,12 +2,9 @@ package com.qlvt.BTL.service;
 
 import com.qlvt.BTL.dto.AdminRegis;
 import com.qlvt.BTL.model.Admin;
-import com.qlvt.BTL.model.Material;
 import com.qlvt.BTL.repository.AdminRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class AminServiceImpl implements AdminService{
@@ -20,24 +17,24 @@ public class AminServiceImpl implements AdminService{
     }
 
     @Override
-    public Admin authenticate(String username, String password) {
-        Admin admin = adminRepo.findByUsername(username);
-
-        if (admin != null && admin.getPassword().equals(password)) {
-            return admin;
-        }
-
-        return null;
-    }
-
-
-    @Override
     public Admin save(AdminRegis regis) {
         Admin admin = new Admin(regis.getTen()
         , regis.getSodienthoai(), regis.getEmail()
         ,regis.getUsername(), regis.getPassword());
 
         return adminRepo.save(admin);
+    }
+
+    @Override
+    public Admin getInfo(Admin admin) {
+         return adminRepo.findByUsername(admin.getUsername());
+    }
+
+    @Override
+    public Boolean authenticate(Admin admin) {
+        Admin authen = adminRepo.findByUsername(admin.getUsername());
+        return authen != null && authen.getPassword().equals(admin.getPassword());
+
     }
 
 

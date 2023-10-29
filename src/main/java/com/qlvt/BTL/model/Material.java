@@ -1,9 +1,8 @@
 package com.qlvt.BTL.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Collection;
 
 @Entity
 public class Material {
@@ -18,6 +17,13 @@ public class Material {
     private long dongia;
     private String nhacungcap;
     private String mota;
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "hangnhap",
+            joinColumns = @JoinColumn(name = "admin_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "supplier_id", referencedColumnName = "id")
+    )
+    private Collection<Supplier> nhacungcap;
 
     public long getId() {
         return id;

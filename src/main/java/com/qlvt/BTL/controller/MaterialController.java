@@ -1,5 +1,6 @@
 package com.qlvt.BTL.controller;
 
+import com.qlvt.BTL.model.Admin;
 import com.qlvt.BTL.model.Material;
 import com.qlvt.BTL.service.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,11 @@ public class MaterialController {
     @Autowired
     private MaterialService materialService;
 
-    @GetMapping("/")
-    public String viewHomePage(Model model) {
+    @GetMapping("/management")
+    public String viewHomePage(Model model, Admin admin) {
 
         model.addAttribute("listMaterials", materialService.getAllMaterials());
-        return "index";
+        return "management";
 
 
     }
@@ -37,7 +38,7 @@ public class MaterialController {
     public String saveMaterial(@ModelAttribute("material") Material material){
         // lưu vào db
         materialService.saveMaterial(material);
-        return "redirect:/";
+        return "redirect:/management";
 
     }
 
@@ -46,7 +47,6 @@ public class MaterialController {
         // lấy vật tư từ service
         Material material = materialService.getMaterialById(id);
 
-        // set vật tư thành 1 model
         model.addAttribute("material", material);
         return "update_material";
 
@@ -56,7 +56,7 @@ public class MaterialController {
     public String deleteMaterial(@PathVariable (value = "id") long id){
         // xóa vật tư trong db
         this.materialService.deleteMaterialById(id);
-        return "redirect:/";
+        return "redirect:/management";
     }
 
 
