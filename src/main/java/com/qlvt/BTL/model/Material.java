@@ -3,9 +3,8 @@ package com.qlvt.BTL.model;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Set;
+
 
 @Entity
 public class Material {
@@ -18,10 +17,10 @@ public class Material {
     private long soluong;
     private String donvi;
     private long dongia;
-    private String nhacungcap;
+
     private String mota;
-    @OneToMany(mappedBy = "material")
-    private List<Item> hangnhap = new ArrayList<>();
+    @OneToMany(mappedBy = "material", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Item> item = new ArrayList<>();
 
 
     public Material() {
@@ -84,14 +83,6 @@ public class Material {
         this.dongia = dongia;
     }
 
-    public String getNhacungcap() {
-        return nhacungcap;
-    }
-
-    public void setNhacungcap(String nhacungcap) {
-        this.nhacungcap = nhacungcap;
-    }
-
     public String getMota() {
         return mota;
     }
@@ -100,11 +91,11 @@ public class Material {
         this.mota = mota;
     }
 
-    public List<Item> getHangnhap() {
-        return hangnhap;
+    public List<Item> getItem() {
+        return item;
     }
 
-    public void setHangnhap(List<Item> hangnhap) {
-        this.hangnhap = hangnhap;
+    public void setItem(List<Item> item) {
+        this.item = item;
     }
 }

@@ -25,7 +25,6 @@
             <th>Số lượng</th>
             <th>Đơn vị</th>
             <th>Đơn giá</th>
-            <th>Nhà cung cấp</th>
             <th>Mô tả</th>
             <th></th>
         </tr>
@@ -37,7 +36,6 @@
             <td th:text="${material.soluong}"></td>
             <td th:text="${material.donvi}"></td>
             <td th:text="${material.dongia}"></td>
-            <td th:text="${material.nhacungcap}"></td>
             <td th:text="${material.mota}"></td>
 
             <td> <a th:href ="@{/import}" class="btn btn-danger"> Nhập </a>
@@ -46,7 +44,7 @@
         </tr>
         </tbody>
     </table>
-    <a th:href = "@{/home}"> Quay lại </a>
+    <a th:href = "@{/suppliers}"> Quay lại </a>
 </div>
 </body>
 </html>

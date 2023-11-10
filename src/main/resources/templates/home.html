@@ -18,11 +18,11 @@
         <p th:text="'Email: ' + ${admin.email}"></p>
 
         <a th:href = "@{/management}" class="btn btn-primary"> Quản lý thông tin vật tư  </a>
-        <br>
+        <hr>
         <a th:href = "@{/suppliers}" class="btn btn-primary"> Nhập hàng hóa </a>
-        <br>
-        <a th:href = "@{/management}" class="btn btn-primary"> Thống kê hàng hóa theo nhà cung cấp </a>
-        <br>
+        <hr>
+        <a th:href = "@{/supplier_stats}" class="btn btn-primary"> Thống kê hàng hóa theo nhà cung cấp </a>
+        <hr>
         <a th:href = "@{/management}" class="btn btn-primary"> Thanh toán </a>
         <hr>
         <a href="/login">Logout</a>

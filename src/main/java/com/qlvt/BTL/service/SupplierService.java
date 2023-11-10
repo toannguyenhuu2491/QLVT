@@ -8,6 +8,12 @@ import java.util.List;
 public interface SupplierService {
     public List<Supplier> getAllSuppliers();
 
+    void saveSupplier(Supplier supplier);
     List<Material> getMaterialsOfSupplier();
+
+
+    Supplier getSupplierById(long id);
+
+
 //    public List<Material> getMaterialsById();
 }

@@ -20,7 +20,7 @@ public class Supplier {
     private String mota;
 
     @OneToMany(mappedBy = "supplier")
-    private List<Item> hangnhap = new ArrayList<>();
+    private List<Item> item = new ArrayList<>();
 
     public Supplier() {
     }
@@ -81,11 +81,11 @@ public class Supplier {
         this.mota = mota;
     }
 
-    public List<Item> getHangnhap() {
-        return hangnhap;
+    public List<Item> getItem() {
+        return item;
     }
 
-    public void setHangnhap(List<Item> hangnhap) {
-        this.hangnhap = hangnhap;
+    public void setItem(List<Item> item) {
+        this.item = item;
     }
 }

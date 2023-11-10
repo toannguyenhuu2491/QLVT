@@ -1,6 +1,9 @@
 package com.qlvt.BTL.service;
 
+import com.qlvt.BTL.model.Item;
 import com.qlvt.BTL.model.Material;
+import com.qlvt.BTL.model.Supplier;
+import com.qlvt.BTL.repository.ItemRepo;
 import com.qlvt.BTL.repository.MaterialRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +16,9 @@ public class MaterialServiceImpl implements MaterialService{
     @Autowired
     private MaterialRepo materialRepo;
 
+    @Autowired
+    private ItemRepo itemRepo;
+
     @Override
     public List<Material> getAllMaterials() {
         return materialRepo.findAll();
@@ -22,6 +28,9 @@ public class MaterialServiceImpl implements MaterialService{
     public void saveMaterial(Material material) {
         this.materialRepo.save(material);
     }
+
+
+
 
     @Override
     public Material getMaterialById(long id) {
@@ -38,7 +47,15 @@ public class MaterialServiceImpl implements MaterialService{
 
     @Override
     public void deleteMaterialById(long id) {
-        this.materialRepo.deleteById(id);
+        materialRepo.deleteById(id);
+    }
+
+    @Override
+    public void addNewMaterial(Material newMaterial, Supplier supplier) {
+            Material savedMaterial = materialRepo.save(newMaterial);
+            Item item = new Item(savedMaterial, supplier);
+            itemRepo.save(item);
+
     }
 
 

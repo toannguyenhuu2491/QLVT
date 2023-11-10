@@ -38,7 +38,7 @@
             <td th:text="${material.soluong}"></td>
             <td th:text="${material.donvi}"></td>
             <td th:text="${material.dongia}"></td>
-            <td th:text="${material.nhacungcap}"></td>
+            <td th:text="${material.item[0].supplier.ten}"></td>
             <td th:text="${material.mota}"></td>
             <td> <a th:href ="@{/showFormForUpdate/{id}(id=${material.id})}" class="btn btn-primary"> Sửa </a>
             </td>

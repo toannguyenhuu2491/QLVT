@@ -13,14 +13,13 @@
         <h1 Hệ thống quản lý vật tư></h1>
         <hr>
         <h2>Sửa vật tư</h2>
-        <form action = "#" th:action = "@{/saveMaterial}" th:object = "${material}" method = "POST">
+        <form action = "#" th:action = "@{/updateMaterial}" th:object = "${material}" method = "POST">
             <input type="hidden" th:field="*{id}"/>
             <input type="text" th:field = "*{ten}" class="form-control mb-4 col-4">
             <input type="text" th:field = "*{loai}" class="form-control mb-4 col-4">
             <input type="text" th:field = "*{soluong}" class="form-control mb-4 col-4">
             <input type="text" th:field = "*{donvi}"  class="form-control mb-4 col-4">
             <input type="text" th:field = "*{dongia}" class="form-control mb-4 col-4">
-            <input type="text" th:field = "*{nhacungcap}" class="form-control mb-4 col-4">
             <input type="text" th:field = "*{mota}" class="form-control mb-4 col-4">
             <button type="submit" class="btn btn-info col-2">Sửa hàng hóa</button>
         </form>

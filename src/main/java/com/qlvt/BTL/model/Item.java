@@ -11,13 +11,20 @@ public class Item {
 
     @ManyToOne
     @JoinColumn(name = "material_id")
-    Material material;
+    private Material material;
 
 
     @ManyToOne
     @JoinColumn(name = "supplier_id")
-    Supplier supplier;
+    private Supplier supplier;
 
+    public Item() {
+    }
+
+    public Item(Material material, Supplier supplier) {
+        this.material = material;
+        this.supplier = supplier;
+    }
 
     public long getId() {
         return id;
