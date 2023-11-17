@@ -36,7 +36,8 @@
             <td th:text="${supplier.diachi}"></td>
             <td th:text="${supplier.email}"></td>
             <td th:text="${supplier.mota}"></td>
-            <td> <a th:href = "@{/choose_material}" class= "btn btn-primary">Chọn </a>
+            <td> <a th:href ="@{/supplier/{id}(id=${supplier.id})}"
+                    class="btn btn-primary"> Chọn </a>
             </td>
 
 

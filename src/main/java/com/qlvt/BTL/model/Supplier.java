@@ -19,7 +19,7 @@ public class Supplier {
     private String email;
     private String mota;
 
-    @OneToMany(mappedBy = "supplier")
+    @OneToMany(mappedBy = "supplier", cascade= CascadeType.ALL)
     private List<Item> item = new ArrayList<>();
 
     public Supplier() {

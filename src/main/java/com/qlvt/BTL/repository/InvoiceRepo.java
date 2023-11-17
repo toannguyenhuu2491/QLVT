@@ -1,10 +1,9 @@
 package com.qlvt.BTL.repository;
 
-import com.qlvt.BTL.model.Supplier;
+import com.qlvt.BTL.model.Invoice;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SupplierRepo extends JpaRepository<Supplier, Long> {
-
+public interface InvoiceRepo extends JpaRepository<Invoice, Long> {
 }

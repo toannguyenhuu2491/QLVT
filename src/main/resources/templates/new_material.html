@@ -24,8 +24,6 @@
                    placeholder="Đơn vị" class="form-control mb-4 col-4">
             <input type="text" th:field = "*{dongia}"
                    placeholder="Đơn giá" class="form-control mb-4 col-4">
-<!--            <input type="text" th:field = "*{nhacungcap}" placeholder="Nhà cung cấp" class="form-control mb-4 col-4">-->
-
             <label for="supplierId">Select Supplier:</label>
             <select id="supplierId" name="supplier.id">
                 <option th:each="supplier : ${suppliers}" th:value="${supplier.id}" th:text="${supplier.ten}"></option>

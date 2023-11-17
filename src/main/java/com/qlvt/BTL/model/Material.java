@@ -19,7 +19,7 @@ public class Material {
     private long dongia;
 
     private String mota;
-    @OneToMany(mappedBy = "material", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "material", cascade = CascadeType.ALL)
     private List<Item> item = new ArrayList<>();
 
 

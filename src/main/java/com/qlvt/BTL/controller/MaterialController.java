@@ -75,24 +75,4 @@ public class MaterialController {
     }
 
 
-    // Nhập hàng hóa
-
-    @GetMapping("/import")
-    public String showImportForm(Model model) {
-        Material material = new Material();
-        model.addAttribute("material", material);
-        return "import";
-
-    }
-
-    @PostMapping("/import")
-    public String importMaterial(@ModelAttribute("material")  Material material){
-        materialService.saveMaterial(material);
-        return "redirect:/management";
-    }
-
-
-
-
-
 }

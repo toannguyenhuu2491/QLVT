@@ -15,11 +15,17 @@
         <h2>Sửa vật tư</h2>
         <form action = "#" th:action = "@{/updateMaterial}" th:object = "${material}" method = "POST">
             <input type="hidden" th:field="*{id}"/>
+            <label> Tên</label>
             <input type="text" th:field = "*{ten}" class="form-control mb-4 col-4">
+            <label> Loại </label>
             <input type="text" th:field = "*{loai}" class="form-control mb-4 col-4">
+            <label> Số lượng </label>
             <input type="text" th:field = "*{soluong}" class="form-control mb-4 col-4">
-            <input type="text" th:field = "*{donvi}"  class="form-control mb-4 col-4">
+            <label> Đơn giá </label>
             <input type="text" th:field = "*{dongia}" class="form-control mb-4 col-4">
+            <label> Đơn vị </label>
+            <input type="text" th:field = "*{donvi}"  class="form-control mb-4 col-4">
+            <label> Mô tả </label>
             <input type="text" th:field = "*{mota}" class="form-control mb-4 col-4">
             <button type="submit" class="btn btn-info col-2">Sửa hàng hóa</button>
         </form>

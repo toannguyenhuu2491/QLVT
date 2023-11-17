@@ -9,7 +9,7 @@ public interface SupplierService {
     public List<Supplier> getAllSuppliers();
 
     void saveSupplier(Supplier supplier);
-    List<Material> getMaterialsOfSupplier();
+    List<Material> getMaterialsOfSupplier(Supplier supplier);
 
 
     Supplier getSupplierById(long id);

@@ -1,12 +1,9 @@
 package com.qlvt.BTL.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
-import java.util.Date;
+import java.util.*;
 
 @Entity
 public class Invoice {
@@ -15,8 +12,21 @@ public class Invoice {
     private long id;
 
     private Date ngayxuat;
-    private long thanhtien;
+    private long tongtien;
+    private String trangthai;
 
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.MERGE)
+    private List<InvoiceDetails> details = new ArrayList<>();
+
+    public Invoice() {
+    }
+
+    public Invoice(Date ngayxuat, long tongtien, String trangthai, List<InvoiceDetails> details) {
+        this.ngayxuat = ngayxuat;
+        this.tongtien = tongtien;
+        this.trangthai = trangthai;
+        this.details = details;
+    }
 
 
     public long getId() {
@@ -35,11 +45,29 @@ public class Invoice {
         this.ngayxuat = ngayxuat;
     }
 
-    public long getThanhtien() {
-        return thanhtien;
+    public long getTongtien() {
+        return tongtien;
     }
 
-    public void setThanhtien(long thanhtien) {
-        this.thanhtien = thanhtien;
+    public void setTongtien(long tongtien) {
+        this.tongtien = tongtien;
     }
+
+    public String getTrangthai() {
+        return trangthai;
+    }
+
+    public void setTrangthai(String trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public List<InvoiceDetails> getDetails() {
+        return details;
+    }
+
+    public void setDetails(List<InvoiceDetails> details) {
+        this.details = details;
+    }
+
+
 }

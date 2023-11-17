@@ -1,8 +1,10 @@
 package com.qlvt.BTL.service;
 
 
+import com.qlvt.BTL.model.Item;
 import com.qlvt.BTL.model.Material;
 import com.qlvt.BTL.model.Supplier;
+import com.qlvt.BTL.repository.ItemRepo;
 import com.qlvt.BTL.repository.MaterialRepo;
 import com.qlvt.BTL.repository.SupplierRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class SupplierServiceImpl implements SupplierService{
@@ -17,6 +20,8 @@ public class SupplierServiceImpl implements SupplierService{
     private SupplierRepo supplierRepo;
     @Autowired
     private MaterialRepo materialRepo;
+    @Autowired
+    private ItemRepo itemRepo;
 
     @Override
     public List<Supplier> getAllSuppliers() {
@@ -29,8 +34,12 @@ public class SupplierServiceImpl implements SupplierService{
     }
 
     @Override
-    public List<Material> getMaterialsOfSupplier() {
-        return materialRepo.findAll();
+    public List<Material> getMaterialsOfSupplier(Supplier supplier) {
+        List<Item> items = itemRepo.findBySupplier(supplier);
+        List<Material> materials = items.stream()
+                .map(Item::getMaterial)
+                .collect(Collectors.toList());
+        return materials;
     }
 
     @Override

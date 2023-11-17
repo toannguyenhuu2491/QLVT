@@ -30,20 +30,22 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="material : ${listMaterials}">
-            <td th:text="${material.ten}"></td>
-            <td th:text="${material.loai}"></td>
-            <td th:text="${material.soluong}"></td>
-            <td th:text="${material.donvi}"></td>
-            <td th:text="${material.dongia}"></td>
-            <td th:text="${material.mota}"></td>
+        <tr th:each="item : ${items}">
+            <td th:text="${item.material.ten}"></td>
+            <td th:text="${item.material.loai}"></td>
+            <td th:text="${item.material.soluong}"></td>
+            <td th:text="${item.material.donvi}"></td>
+            <td th:text="${item.material.dongia}"></td>
+            <td th:text="${item.material.mota}"></td>
 
-            <td> <a th:href ="@{/import}" class="btn btn-danger"> Nhập </a>
+            <td> <a th:href ="@{/import/{id}(id=${item.id})}" class="btn btn-danger"> Nhập </a>
+
             </td>
 
         </tr>
         </tbody>
     </table>
+    <a th:href = "@{/importList}" class="btn btn-primary"> DS </a>
     <a th:href = "@{/suppliers}"> Quay lại </a>
 </div>
 </body>

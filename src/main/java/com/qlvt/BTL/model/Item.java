@@ -1,6 +1,8 @@
 package com.qlvt.BTL.model;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 
 @Entity
@@ -10,13 +12,19 @@ public class Item {
     private long id;
 
     @ManyToOne
+    @Cascade(CascadeType.MERGE)
     @JoinColumn(name = "material_id")
     private Material material;
 
 
     @ManyToOne
+    @Cascade(CascadeType.MERGE)
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
+
+
+    @OneToOne(mappedBy = "item")
+    private InvoiceDetails invoiceDetails;
 
     public Item() {
     }
@@ -48,5 +56,13 @@ public class Item {
 
     public void setSupplier(Supplier supplier) {
         this.supplier = supplier;
+    }
+
+    public InvoiceDetails getInvoiceDetails() {
+        return invoiceDetails;
+    }
+
+    public void setInvoiceDetails(InvoiceDetails invoiceDetails) {
+        this.invoiceDetails = invoiceDetails;
     }
 }
