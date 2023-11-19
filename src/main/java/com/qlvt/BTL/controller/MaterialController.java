@@ -65,7 +65,6 @@ public class MaterialController {
         Material material = materialService.getMaterialById(id);
         model.addAttribute("material", material);
         return "update_material";
-
     }
 
     @GetMapping("/deleteMaterial/{id}")

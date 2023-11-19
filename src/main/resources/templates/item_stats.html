@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hệ thống quản lý vật tư</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container my-2">
+    <h1>Hệ thống quản lý vật tư</h1>
+    <hr>
+    <hr>
+    <h2> Thống kê nhập hàng </h2>
+
+    <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Mã hóa đơn</th>
+            <th>Số lượng nhập</th>
+            <th>Thành tiền</th>
+            <th>Ngày nhập</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="details : ${listDetails}">
+            <td th:text="${details.invoice.id}"></td>
+            <td th:text="${details.soluongnhap}"></td>
+            <td th:text="${details.thanhtien}"></td>
+            <td th:text="${details.ngaynhap}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href = "@{/supplier_stats/{id}(id= ${supplierId})}"> Quay lại </a>
+</div>
+</body>
+</html>

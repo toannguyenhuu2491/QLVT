@@ -12,35 +12,43 @@
 <div class = "container">
     <h1 Hệ thống quản lý vật tư></h1>
     <hr>
-    <table border="1" class = "table table-striped table-responsive-md">
-    <thead>
-    <tr>
-        <th>Tên</th>
-        <th>Loại</th>
-        <th>Số lượng</th>
-        <th>Đơn vị</th>
-        <th>Đơn giá</th>
-        <th>Nhà cung cấp</th>
-        <th>Mô tả</th>
-        <th> Số lượng nhập</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="invoiceDetails : ${invoice.invoiceDetails}">
-        <td th:text="${invoiceDetails.item.material.ten}"></td>
-        <td th:text="${invoiceDetails.item.material.loai}"></td>
-        <td th:text="${invoiceDetails.item.material.soluong}"></td>
-        <td th:text="${invoiceDetails.item.material.donvi}"></td>
-        <td th:text="${invoiceDetails.item.material.dongia}"></td>
-        <td th:text="${invoiceDetails.item.supplier.ten}"></td>
-        <td th:text="${invoiceDetails.item.material.mota}"></td>
-        <td th:text="${invoiceDetails.soluongnhap}"></td>
-    </tr>
-    </tbody>
+    <form th:action = "@{/saveInvoice}" method="POST">
+        <table border="1" class = "table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Loại</th>
+            <th>Số lượng</th>
+            <th>Đơn vị</th>
+            <th>Đơn giá</th>
+            <th>Mô tả</th>
+            <th> Số lượng nhập</th>
+            <th> Thành tiền </th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="receipt : ${receiptList}">
+            <td th:text="${receipt.item.material.ten}"></td>
+            <td th:text="${receipt.item.material.loai}"></td>
+            <td th:text="${receipt.item.material.soluong}"></td>
+            <td th:text="${receipt.item.material.donvi}"></td>
+            <td th:text="${receipt.item.material.dongia}"></td>
+            <td th:text="${receipt.item.material.mota}"></td>
+            <td th:text="${receipt.soluongnhap}"></td>
+            <td th:text="${receipt.thanhtien}"></td>
+            <td><a th:href ="@{/deleteReceipt/{id}(id=${receipt.id})}" class="btn btn-danger"> Hủy </a></td>
+        </tr>
+        </tbody>
+        </table>
+        <hr>
 
-    <hr>
-    <a th:href = "@{/suppliers}"> Quay lại </a>
-    </table>
+        <hr>
+        <button type="submit" class="btn btn-info col-2">Nhập hàng</button>
+
+    </form>
+
+    <a th:href = "@{/supplier/{id}(id = ${supplierId})}">Quay lại</a>
 </div>
 </body>
 </html>

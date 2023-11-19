@@ -19,27 +19,21 @@ public class InvoiceDetailsController {
     private InvoiceDetailsService invoiceDetailsService;
 
     @Autowired
-    private SupplierService supplierService;
+    private ItemService itemService;
 
     @Autowired
     private InvoiceService invoiceService;
 
-    @Autowired
-    private ItemService itemService;
 
-    @GetMapping("/import/{id}")
-    public String itemForImport(@PathVariable(value = "id") long id, Model model){
-        Item item = itemService.getItemById(id);
-        model.addAttribute("item", item);
-        return "import";
+
+    @GetMapping("/item_stats/{id}")
+    public String showItemStats(@PathVariable("id") long id, Model model){
+        List<InvoiceDetails> list = invoiceDetailsService.getDetailsOfItem(id);
+        long supplierId = itemService.getItemById(id).getSupplier().getId();
+        model.addAttribute("supplierId", supplierId);
+        model.addAttribute("listDetails", list);
+        return "item_stats";
     }
-
-//    @GetMapping("/importList")
-//    public String listInvoiceDetails(Model model){
-//        List<InvoiceDetails> list = invoiceDetailsService.getAllInvoiceDetails();
-//        model.addAttribute("listInvoiceDetails", list);
-//        return "import_list";
-//    }
 
 
 

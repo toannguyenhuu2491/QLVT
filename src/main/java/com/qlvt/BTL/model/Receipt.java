@@ -1,37 +1,30 @@
 package com.qlvt.BTL.model;
 
+
 import jakarta.persistence.*;
-import org.hibernate.annotations.Cascade;
 
 import java.time.LocalDate;
 
-
 @Entity
-public class InvoiceDetails {
-
+public class Receipt {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @Temporal(TemporalType.DATE)
     private LocalDate ngaynhap;
-    private long soluongnhap;
 
+    private long soluongnhap;
     private long thanhtien;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "invoice_id")
-    private Invoice invoice;
-
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 
-    public InvoiceDetails() {
+    public Receipt() {
     }
 
-    public InvoiceDetails(LocalDate ngaynhap, long soluongnhap) {
+    public Receipt(LocalDate ngaynhap, long soluongnhap) {
         this.ngaynhap = ngaynhap;
         this.soluongnhap = soluongnhap;
 
@@ -67,14 +60,6 @@ public class InvoiceDetails {
 
     public void setThanhtien(long thanhtien) {
         this.thanhtien = thanhtien;
-    }
-
-    public Invoice getInvoice() {
-        return invoice;
-    }
-
-    public void setInvoice(Invoice invoice) {
-        this.invoice = invoice;
     }
 
     public Item getItem() {

@@ -61,6 +61,7 @@ public class SupplierController {
     public String materialsFromSupplier(@PathVariable(value = "id") long id, Model model){
         Supplier supplier = supplierService.getSupplierById(id);
         List<Item> items = supplier.getItem();
+        model.addAttribute("supplier", supplier);
         model.addAttribute("items", items);
 //        List<Material> materials = supplierService.getMaterialsOfSupplier(supplier);
 //        model.addAttribute("materials", materials);

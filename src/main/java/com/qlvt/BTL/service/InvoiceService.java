@@ -9,5 +9,9 @@ import java.util.List;
 
 
 public interface InvoiceService {
-    Invoice addItemToList(Item item, int quantity);
+    List<Invoice> getAllInvoice();
+    Invoice getInvoiceById(long id);
+    void saveInvoice(List<InvoiceDetails> details);
+
+    void updateInvoice(Invoice invoice);
 }

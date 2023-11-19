@@ -23,9 +23,6 @@ public class Item {
     private Supplier supplier;
 
 
-    @OneToOne(mappedBy = "item")
-    private InvoiceDetails invoiceDetails;
-
     public Item() {
     }
 
@@ -58,11 +55,4 @@ public class Item {
         this.supplier = supplier;
     }
 
-    public InvoiceDetails getInvoiceDetails() {
-        return invoiceDetails;
-    }
-
-    public void setInvoiceDetails(InvoiceDetails invoiceDetails) {
-        this.invoiceDetails = invoiceDetails;
-    }
 }

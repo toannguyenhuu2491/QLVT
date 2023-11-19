@@ -3,6 +3,7 @@ package com.qlvt.BTL.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.*;
 
 @Entity
@@ -11,17 +12,17 @@ public class Invoice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private Date ngayxuat;
+    private LocalDate ngayxuat;
     private long tongtien;
     private String trangthai;
 
-    @OneToMany(mappedBy = "invoice", cascade = CascadeType.MERGE)
+    @OneToMany(mappedBy = "invoice", cascade = CascadeType.ALL)
     private List<InvoiceDetails> details = new ArrayList<>();
 
     public Invoice() {
     }
 
-    public Invoice(Date ngayxuat, long tongtien, String trangthai, List<InvoiceDetails> details) {
+    public Invoice(LocalDate ngayxuat, long tongtien, String trangthai, List<InvoiceDetails> details) {
         this.ngayxuat = ngayxuat;
         this.tongtien = tongtien;
         this.trangthai = trangthai;
@@ -37,11 +38,11 @@ public class Invoice {
         this.id = id;
     }
 
-    public Date getNgayxuat() {
+    public LocalDate getNgayxuat() {
         return ngayxuat;
     }
 
-    public void setNgayxuat(Date ngayxuat) {
+    public void setNgayxuat(LocalDate ngayxuat) {
         this.ngayxuat = ngayxuat;
     }
 
