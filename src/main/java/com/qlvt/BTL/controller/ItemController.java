@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class ItemController {
     @Autowired
@@ -19,5 +21,15 @@ public class ItemController {
         model.addAttribute("item", item);
         return "import";
     }
+
+    @GetMapping("/management")
+    public String viewHomePage(Model model) {
+        List<Item> list = itemService.getAllItems();
+        model.addAttribute("list", list);
+        return "management";
+
+
+    }
+
 
 }

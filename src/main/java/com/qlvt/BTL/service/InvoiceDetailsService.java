@@ -13,4 +13,7 @@ public interface InvoiceDetailsService {
     void updateQuantity(List<Receipt> list);
 
     List<InvoiceDetails> getDetailsOfItem(long id);
+
+
+
 }

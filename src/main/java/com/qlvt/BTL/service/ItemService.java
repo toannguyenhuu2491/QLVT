@@ -9,4 +9,6 @@ import java.util.List;
 public interface ItemService {
 
     Item getItemById(long id);
+
+    List<Item> getAllItems();
 }

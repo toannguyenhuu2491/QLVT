@@ -23,13 +23,7 @@ public class MaterialController {
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/management")
-    public String viewHomePage(Model model) {
-        model.addAttribute("listMaterials", materialService.getAllMaterials());
-        return "management";
 
-
-    }
 
     // CRUD
 

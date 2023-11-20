@@ -34,4 +34,9 @@ public class ItemServiceImpl implements ItemService{
         }
         return item;
     }
+
+    @Override
+    public List<Item> getAllItems() {
+        return itemRepo.findAll();
+    }
 }

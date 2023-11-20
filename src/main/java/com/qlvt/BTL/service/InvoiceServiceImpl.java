@@ -80,4 +80,15 @@ public class InvoiceServiceImpl implements InvoiceService {
         invoice.setTrangthai("Đã thanh toán");
         invoiceRepo.save(invoice);
     }
+
+    @Override
+    public void deleteInvoice(long id) {
+        Invoice invoice = getInvoiceById(id);
+        List<InvoiceDetails> list = invoice.getDetails();
+        for(InvoiceDetails details: list){
+            invoiceDetailsRepo.delete(details);
+
+        }
+        invoiceRepo.delete(invoice);
+    }
 }

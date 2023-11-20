@@ -14,4 +14,6 @@ public interface InvoiceService {
     void saveInvoice(List<InvoiceDetails> details);
 
     void updateInvoice(Invoice invoice);
+
+    void deleteInvoice(long id);
 }

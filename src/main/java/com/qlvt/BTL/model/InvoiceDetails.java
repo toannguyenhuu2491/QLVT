@@ -24,7 +24,7 @@ public class InvoiceDetails {
     private Invoice invoice;
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "item_id")
     private Item item;
 

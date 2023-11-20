@@ -1,11 +1,11 @@
 package com.qlvt.BTL.service;
 
+import com.qlvt.BTL.model.Invoice;
 import com.qlvt.BTL.model.InvoiceDetails;
 import com.qlvt.BTL.model.Material;
 import com.qlvt.BTL.model.Receipt;
-import com.qlvt.BTL.repository.InvoiceDetailsRepo;
-import com.qlvt.BTL.repository.MaterialRepo;
-import com.qlvt.BTL.repository.ReceiptRepo;
+import com.qlvt.BTL.repository.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +23,7 @@ public class InvoiceDetailsServiceImpl implements InvoiceDetailsService{
 
     @Autowired
     private MaterialRepo materialRepo;
+
 
     @Override
     public List<InvoiceDetails> getAllInvoiceDetails() {
@@ -65,4 +66,8 @@ public class InvoiceDetailsServiceImpl implements InvoiceDetailsService{
         }
         return show;
     }
+
+
+
+
 }

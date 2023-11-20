@@ -24,7 +24,7 @@
             <th>Ngày xuất</th>
             <th>Tổng tiền</th>
             <th>Trạng thái</th>
-
+            <th>Chi tiết</th>
             <th></th>
         </tr>
         </thead>
@@ -34,11 +34,13 @@
             <td th:text="${invoice.ngayxuat}"></td>
             <td th:text="${invoice.tongtien}"></td>
             <td th:text="${invoice.trangthai}"></td>
-
             <td> <a th:href ="@{/invoice/{id}(id = ${invoice.id})}"
                     class="btn btn-danger"> Xem chi tiết </a>
             </td>
-
+            <td>
+                <a th:href ="@{/deleteInvoice/{id}(id = ${invoice.id})}"
+                   class="btn btn-danger"> Xóa </a>
+            </td>
         </tr>
         </tbody>
     </table>

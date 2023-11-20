@@ -60,4 +60,11 @@ public class InvoiceController {
         return "redirect:/invoice_list";
     }
 
+    @GetMapping("/deleteInvoice/{id}")
+    public String deleteInvoice(@PathVariable(value = "id") long id){
+        invoiceService.deleteInvoice(id);
+        return "redirect:/invoice_list";
+    }
+
+
 }
