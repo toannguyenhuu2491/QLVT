@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface MaterialService {
     List<Material> getAllMaterials();
     void saveMaterial(Material material);
-
+    void updateMaterial(Material material);
 
     Material getMaterialById(long id);
     void deleteMaterialById(long id);

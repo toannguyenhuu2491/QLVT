@@ -49,7 +49,7 @@ public class MaterialController {
     // Sửa vật tư
     @PostMapping("/updateMaterial")
     public String updateMaterial(@ModelAttribute("material") Material material){
-        materialService.saveMaterial(material);
+        materialService.updateMaterial(material);
         return "redirect:/management";
     }
 

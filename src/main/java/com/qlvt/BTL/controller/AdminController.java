@@ -42,7 +42,7 @@ public class AdminController {
             session.setAttribute("admin", admin);
 
             return "redirect:/home";
-        } else {
+        } else{
             model.addAttribute("error", true);
             return "login";
         }

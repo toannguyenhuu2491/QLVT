@@ -29,7 +29,12 @@ public class MaterialServiceImpl implements MaterialService{
         this.materialRepo.save(material);
     }
 
-
+    @Override
+    public void updateMaterial(Material material) {
+        Material update = getMaterialById(material.getId());
+        material.setSoluong(update.getSoluong());
+        materialRepo.save(material);
+    }
 
 
     @Override

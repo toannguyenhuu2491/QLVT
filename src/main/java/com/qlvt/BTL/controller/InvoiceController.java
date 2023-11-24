@@ -21,9 +21,6 @@ public class InvoiceController {
     private InvoiceDetailsService invoiceDetailsService;
 
     @Autowired
-    private ItemService itemService;
-
-    @Autowired
     private ReceiptService receiptService;
 
     @PostMapping("/saveInvoice")
